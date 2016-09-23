@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form
+	addrulepath="/administrator/components/com_dwportfolio/models/rules"
+>
+	<fieldset name="details">
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="title"
+				type="text"
+				label="COM_DWPORTFOLIO_DWPORTFOLIO_TITLE_LABEL"
+				description="COM_DWPORTFOLIO_DWPORTFOLIO_TITLE_DESC"
+				size="40"
+				class="inputbox validate-title"
+				validate="title"
+				required="true"
+				default=""
+				/>
+		<field name="published" type="list"
+			label="JSTATUS" description="COM_BANNERS_FIELD_STATE_DESC"
+			class="chzn-color-state"
+			size="1" default="1">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+		<field	
+				name="catid"
+				type="category"
+				extension="com_dwportfolio"
+				class="inputbox"
+				default=""
+				label="COM_DWPORTFOLIO_DWPORTFOLIO_FIELD_CATID_LABEL"
+				description="COM_DWPORTFOLIO_DWPORTFOLIO_FIELD_CATID_DESC"
+				>
+			<option value="0">JOPTION_SELECT_CATEGORY</option>
+		</field>
+		<field	
+				name="image"
+				type="media"
+				extension="com_dwportfolio"
+				class="inputbox"
+				default=""
+				label="COM_DWPORTFOLIO_DWPORTFOLIO_FIELD_IMAGE_LABEL"
+				description="COM_DWPORTFOLIO_DWPORTFOLIO_FIELD_IMAGE_DESC"
+				required="true"
+				>
+			<option value="0">JOPTION_SELECT_CATEGORY</option>
+		</field>
+		<!--
+		<field name="tags" type="tag"
+			label="JTAG" description="JTAG_DESC"
+			class="inputbox span12 small" multiple="true"
+		>
+		</field>
+		-->
+		<field name="language" type="contentlanguage" label="JFIELD_LANGUAGE_LABEL"
+			description="COM_DWPORTFOLIO_FIELD_LANGUAGE_DESC">
+			<option value="*">JALL</option>
+		</field>
+		<field name="created" type="calendar"
+			label="COM_DWPORTFOLIO_FIELD_CREATED_LABEL" description="COM_DWPORTFOLIO_CREATED_DESC"
+			size="22" format="%Y-%m-%d %H:%M:%S" filter="unset"
+			 />
+
+	</fieldset>
+</form>

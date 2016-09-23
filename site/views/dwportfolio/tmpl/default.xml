@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_DWPORTFOLIO_DWPORTFOLIO_VIEW_DEFAULT_TITLE">
+		<message>COM_DWPORTFOLIO_DWPORTFOLIO_VIEW_DEFAULT_DESC</message>
+	</layout>
+	
+	<fields name="request"
+						addfieldpath="/administrator/components/com_dwportfolio/models/fields">
+		<!--
+		<fieldset name="request">
+			<field 	name="id"
+					type="dwportfolio"
+					label="COM_DWPORTFOLIO_DWPORTFOLIO_FIELD_TITLE_LABEL"
+					description="COM_DWPORTFOLIO_DWPORTFOLIO_FIELD_TITLE_DESCRIPTION"
+					default="1">
+			</field>
+		</fieldset>
+		-->
+	</fields>
+</metadata>
