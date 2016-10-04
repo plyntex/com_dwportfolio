@@ -30,7 +30,8 @@ class DWPortfolioModelDWItems extends JModelList
 			$config['filter_fields'] = array(
 					'id',
 					'title',
-					'created'
+					'created',
+                    'category_id'
 			);
 		}
 		
@@ -72,6 +73,14 @@ class DWPortfolioModelDWItems extends JModelList
 		elseif( $published === '' )
 		{
 			$query->where('published IN (0,1)');
+		}
+        
+        // Filter by category.
+		$categoryId = $this->getState('filter.category_id');
+
+		if (is_numeric($categoryId))
+		{
+			$query->where($db->quoteName('catid') . ' = ' . (int) $categoryId);
 		}
 		
 		//Add the list ordering clause

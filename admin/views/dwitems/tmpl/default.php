@@ -17,17 +17,16 @@ $listDirn = $this->escape($this->filter_order_Dir);
 
 ?>
 <form action="index.php?option=com_dwportfolio&view=dwitems" method="post" id="adminForm" name="adminForm">
-	<div class="row-fluid">
-		<div class="span6">
-			<?php echo JText::_('COM_DWPORTFOLIO_DWITEMS_FILTER')?>
-			<?php echo JLayoutHelper::render(
-						'joomla.searchtools.default',
-						array('view' => $this)
-					);
-			?>
-		</div>
+    <div id="j-sidebar-container" class="span2">
+		<?php echo $this->sidebar; ?>
 	</div>
-	<table class="table table-striped table-hover">
+    
+    <div id="j-main-container" class="span10">
+       <?php
+		// Search tools bar
+		echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this));
+		?>
+        <table class="table table-striped table-hover">
 		<!--  HEAD -->
 		<thead>
 			<tr>
@@ -84,6 +83,10 @@ $listDirn = $this->escape($this->filter_order_Dir);
 			<?php endif; ?>
 		</tbody>
 	</table>
+    </div>
+    
+	
+	
 	<input type="hidden" name="task" value="" />
 	<input type="hidden" name="boxchecked" value="0"/>
 	<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>	

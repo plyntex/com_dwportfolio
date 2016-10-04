@@ -18,6 +18,48 @@ defined('_JEXEC') or die('Restricted access');
 
 class DWPortfolioViewDWItems extends JViewLegacy 
 {
+    /**
+	 * An array of items
+	 *
+	 * @var  array
+	 */
+	protected $items;
+
+	/**
+	 * The pagination object
+	 *
+	 * @var  JPagination
+	 */
+	protected $pagination;
+
+	/**
+	 * The model state
+	 *
+	 * @var  object
+	 */
+	protected $state;
+
+	/**
+	 * Form object for search filters
+	 *
+	 * @var  JForm
+	 */
+	public $filterForm;
+
+	/**
+	 * The active search filters
+	 *
+	 * @var  array
+	 */
+	public $activeFilters;
+
+	/**
+	 * The sidebar markup
+	 *
+	 * @var  string
+	 */
+	protected $sidebar;
+    
 	/**
 	 * Display the Forms view
 	 *
@@ -51,7 +93,10 @@ class DWPortfolioViewDWItems extends JViewLegacy
 		
 		//Set the toolbar
 		$this->addToolBar();
-		
+        
+        //Set the sidebar
+		$this->sidebar = JHtmlSidebar::render();
+        
 		//display template
 		parent::display($tpl);
 		
@@ -62,6 +107,9 @@ class DWPortfolioViewDWItems extends JViewLegacy
 	
 	protected function addToolBar()
 	{
+        require_once JPATH_COMPONENT . '/helpers/dwportfolio.php';
+        JLoader::register('DWPortfolioHelper', JPATH_ADMINISTRATOR . '/components/com_dwportfolio/helpers/dwportfolio.php');
+        
 		$title = JText::_('COM_DWPORTFOLIO_MANAGER_DWITEMS');
 		
 		if($this->pagination->total)

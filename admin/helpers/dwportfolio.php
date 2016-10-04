@@ -26,27 +26,19 @@ abstract class DWPortfolioHelper
 	 * @return Bool
 	 */
  
-	public static function addSubmenu($submenu) 
+	public static function addSubmenu($vName) 
 	{
-		JSubMenuHelper::addEntry(
-			JText::_('COM_DWPORTFOLIO_SUBMENU_MESSAGES'),
-			'index.php?option=com_dwportfolio',
-			$submenu == 'dwitems'
+       JHtmlSidebar::addEntry(
+			JText::_('COM_DWPORTFOLIO_SUBMENU_ITEMS'),
+			'index.php?option=com_dwportfolio&view=dwitems',
+			$vName == 'dwitems'
 		);
- 
-		JSubMenuHelper::addEntry(
+	
+		JHtmlSidebar::addEntry(
 			JText::_('COM_DWPORTFOLIO_SUBMENU_CATEGORIES'),
-			'index.php?option=com_categories&view=categories&extension=com_dwportfolio',
-			$submenu == 'categories'
+			'index.php?option=com_categories&extension=com_dwportfolio',
+			$vName == 'categories'
 		);
- 
-		// Set some global property
-		$document = JFactory::getDocument();
-		$document->addStyleDeclaration('.icon-48-dwportfolio ' .
-										'{background-image: url(../media/com_dwportfolio/images/tux-48x48.png);}');
-		if ($submenu == 'categories') 
-		{
-			$document->setTitle(JText::_('COM_DWPORTFOLIO_ADMINISTRATION_CATEGORIES'));
-		}
+
 	}
 }
